@@ -52,7 +52,3 @@ emails_count = v.transform(emails)
 print(model.predict(emails_count))
 
 
-clf = Pipeline([
-    ('vectorizer', CountVectorizer()),
-    ('nb', MultinomialNB())
-])
