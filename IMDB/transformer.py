@@ -82,7 +82,6 @@ for epoch in range(epochs):
         loss = outputs.loss
         loss.backward()
         optimizer.step()
-        print("rodando")
 
 # Avaliação no conjunto de teste
 model.eval()
