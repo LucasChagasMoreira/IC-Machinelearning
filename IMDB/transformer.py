@@ -68,12 +68,13 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Configure o otimizador
-optimizer =  torch.optim.AdamW(model.parameters(), lr=1e-5)
+optimizer = torch.optim.AdamW(model.parameters(), lr=1e-5)
 
 # Treinamento
 epochs = 3
 for epoch in range(epochs):
     model.train()
+    epoch_loss = 0.0  # Variável para armazenar a perda total da época
     for batch in train_dataloader:
         batch = tuple(t.to(device) for t in batch)
         inputs, labels = batch
@@ -82,6 +83,9 @@ for epoch in range(epochs):
         loss = outputs.loss
         loss.backward()
         optimizer.step()
+        epoch_loss += loss.item()  # Adiciona a perda do batch à perda total da época
+    epoch_loss /= len(train_dataloader)  # Calcula a média da perda da época
+    print(f'Epoch [{epoch+1}/{epochs}], Loss: {epoch_loss:.4f}')
 
 # Avaliação no conjunto de teste
 model.eval()
@@ -98,6 +102,7 @@ with torch.no_grad():
 
 accuracy = correct / total
 print(f"Acurácia no conjunto de teste: {accuracy}")
+
 
 
 #Xgboost
