@@ -15,7 +15,7 @@ model = RobertaForSequenceClassification.from_pretrained('roberta-base')
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-data = 'semstopwords.csv'
+data = 'Imbd_steeming_and_lemmatization.csv'
 
 def encode_labels(data, label_column):
     # Cria um dicionário de mapeamento para os rótulos
