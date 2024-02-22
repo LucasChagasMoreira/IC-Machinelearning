@@ -59,8 +59,8 @@ train_dataset = TensorDataset(train_inputs, train_labels)
 test_dataset = TensorDataset(test_inputs, test_labels)
 
 # Crie dataloaders
-train_dataloader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-test_dataloader = DataLoader(test_dataset, batch_size=32)
+train_dataloader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+test_dataloader = DataLoader(test_dataset, batch_size=16)
 
 # Carregue o modelo pre-treinado para fine-tuning
 model = RobertaForSequenceClassification.from_pretrained('roberta-base', num_labels=2)
