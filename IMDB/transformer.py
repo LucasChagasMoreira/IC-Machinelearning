@@ -71,7 +71,7 @@ model.to(device)
 optimizer = torch.optim.AdamW(model.parameters(), lr=1e-5)
 
 # Treinamento
-epochs = 3
+epochs = 10
 for epoch in range(epochs):
     model.train()
     epoch_loss = 0.0  # Variável para armazenar a perda total da época
