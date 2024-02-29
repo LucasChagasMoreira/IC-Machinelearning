@@ -68,7 +68,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
 # Configure o otimizador
-optimizer = torch.optim.AdamW(model.parameters(), lr=1e-5)
+optimizer = AdamW(model.parameters(), lr=1e-5)
 
 # Treinamento
 epochs = 10
